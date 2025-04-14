@@ -30,11 +30,18 @@ async function run() {
 
         // Fetching database collection
         const clubMembersCollection = client.db('PCCCStudentIdentityPortal').collection('clubMembers');
+        const committeeMembersCollection = client.db('PCCCStudentIdentityPortal').collection('committeeMembers');
 
         // -----------------------------Club Members Related APIs-----------------------------\\
         // Get all club members
         app.get('/clubMembers', async (req, res) => {
             const result = await clubMembersCollection.find().toArray();
+            res.send(result);
+        })
+
+        // -----------------------------Club Committee Members Related APIs-----------------------------\\
+        app.get('/committeeMembers', async (req, res) => {
+            const result = await committeeMembersCollection.find().toArray();
             res.send(result);
         })
 
