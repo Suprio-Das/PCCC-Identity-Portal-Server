@@ -27,9 +27,12 @@ const client = new MongoClient(uri, {
 async function run() {
     try {
         await client.connect();
-        // Send a ping to confirm a successful connection
-        await client.db("admin").command({ ping: 1 });
-        console.log("Pinged your deployment. You successfully connected to MongoDB!");
+        // Fetching database collection
+        const clubMembersCollection = client.db('PCCCStudentIdentityPortal').collection('clubMembers');
+        if (clubMembersCollection) {
+            console.log('Database collection fetched')
+        }
+
     } finally {
         // Ensures that the client will close when you finish/error
         // await client.close();
