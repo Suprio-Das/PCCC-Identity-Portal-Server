@@ -27,11 +27,16 @@ const client = new MongoClient(uri, {
 async function run() {
     try {
         await client.connect();
+
         // Fetching database collection
         const clubMembersCollection = client.db('PCCCStudentIdentityPortal').collection('clubMembers');
-        if (clubMembersCollection) {
-            console.log('Database collection fetched')
-        }
+
+        // -----------------------------Club Members Related APIs-----------------------------\\
+        // Get all club members
+        app.get('/clubMembers', async (req, res) => {
+            const result = await clubMembersCollection.find().toArray();
+            res.send(result);
+        })
 
     } finally {
         // Ensures that the client will close when you finish/error
