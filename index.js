@@ -39,6 +39,12 @@ async function run() {
             res.send(result);
         })
 
+        // Add a single Club member
+        app.post('/clubMembers', async (req, res) => {
+            const data = req.body;
+            console.log(data);
+        })
+
         // -----------------------------Club Committee Members Related APIs-----------------------------\\
         app.get('/committeeMembers', async (req, res) => {
             const result = await committeeMembersCollection.find().toArray();
