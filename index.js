@@ -39,6 +39,14 @@ async function run() {
             res.send(result);
         })
 
+        // Get Members Batch-wise
+        app.get('/clubMembers', async (req, res) => {
+            const batch = req.query.batch;
+            const query = { "Batch": batch };
+            const result = await clubMembersCollection.find(query).toArray();
+            res.send(result);
+        })
+
         // Add a single Club member
         app.post('/clubMembers', async (req, res) => {
             const data = req.body;
