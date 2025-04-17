@@ -40,11 +40,13 @@ async function run() {
         })
 
         // Get Members Batch-wise
-        app.get('/clubMembers', async (req, res) => {
+        app.get('/batchWiseClubMembers', async (req, res) => {
             const batch = req.query.batch;
             const query = { "Batch": batch };
+            console.log(query)
             const result = await clubMembersCollection.find(query).toArray();
-            res.send(result);
+            console.log(result)
+            res.send(result)
         })
 
         // Add a single Club member
