@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const PORT = process.env.PORT || 5000;
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 require('dotenv').config();
 
 const app = express();
@@ -65,6 +65,19 @@ async function run() {
         // Update single member info
         app.put('/committeeMembers/:id', async (req, res) => {
             const id = req.params.id;
+            const query = { _id: new ObjectId(id) };
+            const updatedInfo = {
+                $set: {
+                    Name: req.body.name,
+                    Designation: req.body.designation,
+                    Batch: req.body.batch,
+                    StudentId: req.body.studentId,
+                    ContactNo: req.body.contactNo,
+                }
+            }
+
+            const result = await committeeMembersCollection.updateOne(query, updatedInfo);
+            res.send(result);
         })
 
     } finally {
