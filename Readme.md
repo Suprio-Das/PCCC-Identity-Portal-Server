@@ -9,7 +9,7 @@
 ---
 
 ### ✅ Future Expected Features:
-- View Student Information  
+- Integrate Event Page
 - Add New Student  
 - Delete Existing Student  
 - Check Student Payment Status  
