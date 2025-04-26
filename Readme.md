@@ -12,7 +12,7 @@
 - Integrate Event Page
 - Send Email to the Users
 - Automated Notice about Dues
-- Check Student Payment Status  
+- Membership hold or blocked 
 
 ---
 
