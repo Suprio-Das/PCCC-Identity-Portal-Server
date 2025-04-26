@@ -11,7 +11,7 @@
 ### ✅ Future Expected Features:
 - Integrate Event Page
 - Send Email to the Users
-- Delete Existing Student  
+- Automated Notice about Dues
 - Check Student Payment Status  
 
 ---
